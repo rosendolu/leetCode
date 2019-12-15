@@ -1,0 +1,22 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosendolu/leetCode.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rosendolu/leetCode/issues"
+  },
+  "homepage": "https://github.com/rosendolu/leetCode#readme",
+  "dependencies": {
+    "eslint-plugin-vue": "^6.0.1"
+  }
+}
