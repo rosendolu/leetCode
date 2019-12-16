@@ -4,9 +4,25 @@
  * @return {number[]}
  *
  */
-// O(n) bad
-//  multiple solutions
+
+/**
+ *  遍历一遍hash 表
+ *  O(n)
+ */
 var twoSum = function(nums, target) {
+  if (!nums.length) return [];
+  let map = new Map();
+  let index = 0;
+  for (let i = 0; i < nums.length; i += 1) {
+    index = map.get(target - nums[i]);
+    if (index !== undefined && index !== i) {
+      return [index, i];
+    }
+    map.set(nums[i], i);
+  }
+};
+//  multiple solutions  slowest bad
+var twoSum0 = function(nums, target) {
   if (!nums.length) return [];
 
   let result = nums.reduce((acc, item, index, arr) => {
@@ -18,8 +34,7 @@ var twoSum = function(nums, target) {
   }, []);
   return result[0];
 };
-// O(n)
-// one solutions
+//
 var twoSum1 = function(nums, target) {
   if (!nums.length) return [];
   for (let i = 0; i < nums.length; i += 1) {
@@ -41,16 +56,20 @@ var twoSum2 = function(nums, target) {
     }
   }
 };
-// O(n)
-var twoSum3 = function(nums, target) {
+
+// O(n) 遍历2遍hash 表
+var twoSum4 = function(nums, target) {
   if (!nums.length) return [];
-  let map = new Map();
+  let map = new Map(
+    nums.map((item, index) => {
+      return [item, index];
+    })
+  );
   let index = 0;
   for (let i = 0; i < nums.length; i += 1) {
-    map.set(nums[i], i);
     index = map.get(target - nums[i]);
     if (index !== undefined && index !== i) {
-      return [Math.min(i, index), Math.max(i, index)];
+      return [index, i];
     }
   }
 };
@@ -67,16 +86,8 @@ var twoSum3 = function(nums, target) {
  *
  *
  */
-let arr = Array.from({ length: 10 ** 5 }, (item, index) => index);
+let arr = Array.from({ length: 10000000 }, (item, index) => index);
 
 console.time('1');
 twoSum(arr, 9);
 console.timeEnd('1');
-
-console.time('2');
-twoSum1(arr, 9);
-console.timeEnd('2');
-
-console.time('3');
-twoSum2(arr, 9);
-console.timeEnd('3');
