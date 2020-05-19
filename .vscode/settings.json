@@ -1,10 +1,4 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "eslint.enable": true,
-  "eslint.alwaysShowStatus": true
+  "editor.formatOnSave": true
 }
