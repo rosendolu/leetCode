@@ -1,5 +1,3 @@
-// @ts-check
-
 export default class Stack {
 	constructor() {
 		this.count = 0;
