@@ -1,11 +1,7 @@
-const chalk = require('chalk');
-const { checkInclusion2 } = require('./src/string/checkInclusion');
-
-// eslint-disable-next-line no-unused-vars
-const { log, time, timeEnd } = console;
-log(chalk.bgGreen(checkInclusion2('adc', 'dcda')));
-
-function sort(arr = []) {
-	return arr.filter((item) => item > 100);
-}
-sort([100, 200, 201]);
+import { selectionSort } from './algorithm/selection_sort.js';
+const arr1 = [1, 2, 3, 4, 5, 6],
+	arr2 = [6, 5, 4, 3, 2, 1],
+	arr3 = [6, 5, 1, 2, 3, 4];
+selectionSort(arr1);
+selectionSort(arr2);
+selectionSort(arr3);
