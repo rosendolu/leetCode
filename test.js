@@ -1,7 +1,9 @@
-import { selectionSort } from './algorithm/sort/selection_sort.js';
-const arr1 = [1, 2, 3, 4, 5, 6],
-	arr2 = [6, 5, 4, 3, 2, 1],
-	arr3 = [6, 5, 1, 2, 3, 4];
-selectionSort(arr1);
-selectionSort(arr2);
-selectionSort(arr3);
+import { threeSum2 } from './src/string/three_sum.js';
+const arr1 = [-1, 0, 1, 2, -1, -4],
+	arr2 = [1, 2, -2, -1],
+	arr4 = [0, 0, 0, 0],
+	arr5 = [-1, 0, 1, 2, -1, -4],
+	arr3 = [1, 2, -2, -1];
+
+// [[-2,-1,3],[-2,0,2],[-1,0,1]]
+threeSum2(arr5);

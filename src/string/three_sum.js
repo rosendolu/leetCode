@@ -1,65 +1,62 @@
 /**
  * @param {number[]} nums
  * @return {number[][]}
+ *
  */
-//   先排序 再遍历 [i]
-const threeSum = function (nums = []) {
-	const res = [];
-	const cacheSet = new Set();
-	const len = nums.length;
-	if (len < 3) return res;
-	// 排序
-	const tempArr = nums.sort((a, b) => a - b);
-	console.log('sorted  arr', tempArr);
-	let i = 0;
-	let j = i + 1;
-	let k = len - 1;
-	// console.log(i, j, k);
-	while (i < len && i < j && j < k) {
-		let a = tempArr[i];
-		let b = tempArr[j];
-		let c = tempArr[k];
-		console.log(i, j, k);
-		let strEle = `${a}${b}${c}`;
-		console.log(strEle, a + b + c);
-		if (a + b + c === 0) {
-			// 去重处理
-			if (!cacheSet.has(strEle)) {
-				res.push([a, b, c]);
-				console.log(cacheSet);
-				permutation([a, b, c]).forEach((el) => {
-					cacheSet.add(el);
-				});
+
+function threeSum(nums = []) {
+	let res = [];
+	nums.sort((a, b) => a - b);
+	let len = nums.length;
+	if (nums[0] <= 0 && nums[len - 1] >= 0) {
+		let i = 0;
+		while (i < len - 2) {
+			if (nums[i] > 0) break; // 最左侧大于0，无解
+			let first = i + 1;
+			let last = len - 1;
+			while (first < last) {
+				if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
+				let sum = nums[i] + nums[first] + nums[last];
+				if (sum === 0) {
+					res.push([nums[i], nums[first], nums[last]]);
+				}
+				// first右移
+				if (sum <= 0) {
+					while (nums[first] === nums[++first]) {
+						console.log('duplicate value', nums[i]);
+					} // 重复值跳过
+					// last 左移
+				} else {
+					while (nums[last] === nums[--last]) {
+						console.log('duplicate value', nums[i]);
+					} // 重复值跳过
+				}
 			}
-			j++;
-		} else if (a + b + c > 0) {
-			k--;
-		} else {
-			i++;
-			j++;
+			while (nums[i] === nums[++i]) {
+				console.log('duplicate value', nums[i]);
+			}
 		}
 	}
 	console.log(res);
-
-	//  3 个元素的排列
-	function permutation(arr = []) {
-		const len = arr.length;
-		const set = new Set();
-		let i = 0;
-		while (i < len) {
-			/**
-			 * 0 1 2
-			 * 1 0 2
-			 * 2 0 1
-			 */
-			set.add(`${arr[i]}${arr[(i + 1) % 3]}${arr[(i + 2) % 3]}`);
-			set.add(`${arr[i]}${arr[(i + 2) % 3]}${arr[(i + 1) % 3]}`);
-			i++;
-		}
-		console.log(set);
-		return Array.from(set);
-	}
 	return res;
-};
-export { threeSum };
-// 先存hash表，再遍历[i,j]
+}
+function threeSum2(nums = []) {
+	const len = nums.length;
+	const res = [];
+	if (len < 3) return res;
+	// 存hash 表
+	let map = {};
+	for (let i = 0, len = nums.length; i < len - 2; i++) {
+		for (let j = i + 1; j < len - 1; j++) {
+			if (map[nums[j]] !== undefined) {
+				res.push([nums[j]].concat(map[nums[i]]));
+				delete map[nums[j]];
+			} else {
+				map[0 - nums[i] - nums[j]] = [nums[i], nums[j]];
+			}
+		}
+	}
+	console.log(res);
+	return res;
+}
+export { threeSum, threeSum2 };

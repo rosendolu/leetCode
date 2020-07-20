@@ -5,8 +5,9 @@
 
 function selectionSort(arr = []) {
 	const len = arr.length;
+	let index_min = null;
 	for (let i = 0; i < len; i++) {
-		let index_min = i;
+		index_min = i;
 		for (let j = i + 1; j < len; j++) {
 			if (arr[j] < arr[index_min]) {
 				index_min = j;
