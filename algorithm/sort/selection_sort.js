@@ -5,17 +5,17 @@
 
 function selectionSort(arr = []) {
 	const len = arr.length;
-	let index_min = null;
+	let minIndex = null;
 	for (let i = 0; i < len; i++) {
-		index_min = i;
+		minIndex = i;
 		for (let j = i + 1; j < len; j++) {
-			if (arr[j] < arr[index_min]) {
-				index_min = j;
+			if (arr[j] < arr[minIndex]) {
+				minIndex = j;
 			}
 		}
 		// swap
-		if (index_min !== i) {
-			[arr[index_min], arr[i]] = [arr[i], arr[index_min]];
+		if (minIndex !== i) {
+			[arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
 		}
 	}
 	console.log(arr);

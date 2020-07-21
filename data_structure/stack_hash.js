@@ -1,4 +1,4 @@
-export default class Stack {
+class Stack {
 	constructor() {
 		this.count = 0;
 		this.items = {};
@@ -46,3 +46,5 @@ export default class Stack {
 		return objString;
 	}
 }
+
+export { Stack };
