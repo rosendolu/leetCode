@@ -13,7 +13,9 @@ const arr1 = [-1, 0, 1, 2, -1, -4],
 
 // [[-2,-1,3],[-2,0,2],[-1,0,1]]
 import { quickSort } from './algorithm/sort/quick_sort.js';
-log(quickSort(arr8, 0, arr8.length - 1));
+import { mergeSort } from './algorithm/sort/merge_sort.js';
+// log(quickSort(arr8, 0, arr8.length - 1));
+log(mergeSort(arr1));
 
 // import { Stack } from './data_structure/stack_array.js';
 // const stack = new Stack(1, 2, 3);
