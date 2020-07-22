@@ -1,48 +1,41 @@
-function partition(arr = [], left, right) {
-	//  取中间的为轴
-	const len = arr.length;
-	let pivot = arr[Math.floor((left + right) / 2)];
-	// console.log('pivot', pivot);
-	// 交换标志
-	let flagSwap = true;
-	while (left < right) {
-		if (arr[left] > pivot) {
-			flagSwap = true;
-		} else {
-			flagSwap = false;
-			left++;
+const { log } = console;
+function partition(arr = [], i, j) {
+	let pivot = arr[Math.floor((i + j) / 2)];
+	console.log('first pivot', pivot);
+	while (i < j) {
+		console.log('i,j', i, j);
+		while (arr[i] < pivot) {
+			i++;
 		}
-		if (arr[right] < pivot) {
-			flagSwap = true;
-		} else {
-			right--;
-			flagSwap = false;
+		while (arr[j] > pivot) {
+			j--;
 		}
-		if (flagSwap) {
-			[arr[left], arr[right]] = [arr[right], arr[left]];
-			// break;
+		// swap left with right
+		if (i < j) {
+			[arr[i], arr[j]] = [arr[j], arr[i]];
 		}
+		i++;
+		j--;
 	}
-	// 交换 pivot 和leftIndex+1 位置
-	if (left >= right) {
-		[arr[left + 1], arr[len - 1]] = [arr[len - 1], arr[left + 1]];
-	}
-	console.log(arr);
-	return left + 1;
+	return i;
 }
 
-function quickSort(arr = [], left, right) {
-	console.log('raw source ', arr);
-	if (left >= right) {
-		return arr;
+function quickSort(arr = [], i, j) {
+	// length === 1
+	if (j - i <= 0) return arr;
+
+	const index = partition(arr, i, j);
+	log('pivot index', index);
+	// length > 1;
+	if (i < index - 1) {
+		quickSort(arr, i, index - 1);
 	}
-	const pivot = partition(arr, left, right);
-	console.log(pivot);
-	// return quickSort(arr, 0, pivot - 1).concat(
-	// 	quickSort(arr, pivot + 1, arr[arr.length - 1])
-	// );
-	// quickSort(0, pivot - 1, arr);
-	// quickSort(0, pivot + 1, arr);
+	// length > 1;
+	if (index < j) {
+		quickSort(arr, index, j);
+	}
+	console.log(arr);
+	return arr;
 }
 
 export { quickSort };
