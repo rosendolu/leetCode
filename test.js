@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { log } = console;
 
 // import { threeSum2 } from './src/string/three_sum.js';
@@ -12,14 +13,16 @@ const arr1 = [-1, 0, 1, 2, -1, -4],
 	arr3 = [2, 1];
 
 // [[-2,-1,3],[-2,0,2],[-1,0,1]]
-import { quickSort } from './algorithm/sort/quick_sort.js';
-import { mergeSort } from './algorithm/sort/merge_sort.js';
+// import { quickSort } from './algorithm/sort/quick_sort.js';
+// import { mergeSort } from './algorithm/sort/merge_sort.js';
+import { quickSelect } from './algorithm/sort/quick_select.js';
 // log(quickSort(arr8, 0, arr8.length - 1));
-quickSort(arr3, 0, arr3.length - 1);
 
+// quickSelect(arr3, 2);
 // import { Stack } from './data_structure/stack_array.js';
 // const stack = new Stack(1, 2, 3);
 // stack.push(4);
 // stack.pop();
 // stack.peek();
 // log(stack.toString());
+(() => {})();
