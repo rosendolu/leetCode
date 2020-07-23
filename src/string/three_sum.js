@@ -59,4 +59,4 @@ function threeSum2(nums = []) {
 	console.log(res);
 	return res;
 }
-export { threeSum, threeSum2 };
+module.exports = { threeSum, threeSum2 };

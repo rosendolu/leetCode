@@ -21,4 +21,4 @@ function bubbleSort(arr = []) {
 	return arr;
 }
 
-export { bubbleSort };
+module.exports = { bubbleSort };

@@ -47,4 +47,4 @@ class Linter {
 const linter = new Linter('var a = [1,{b:1,}}]');
 
 log(linter.test());
-export { Linter };
+module.exports = { Linter };

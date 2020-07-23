@@ -2,8 +2,6 @@
 	"name": "leetcode",
 	"version": "1.0.0",
 	"description": "",
-	"main": "test.js",
-	"type": "module",
 	"scripts": {
 		"test": "nodemon ./test.js"
 	},

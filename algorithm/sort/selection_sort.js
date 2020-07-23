@@ -21,4 +21,4 @@ function selectionSort(arr = []) {
 	console.log(arr);
 	return arr;
 }
-export { selectionSort };
+module.exports = { selectionSort };

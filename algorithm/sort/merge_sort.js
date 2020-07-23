@@ -17,4 +17,4 @@ function merge(left = [], right = []) {
 	}
 	return tempArr.concat(left, right);
 }
-export { mergeSort };
+module.exports = { mergeSort };

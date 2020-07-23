@@ -4,7 +4,7 @@ function quickSelect(arr = [], k = 0) {
 	// 边界处理
 	if (arr.length < k) return null;
 	log(arr, k);
-	search(arr, 0, arr.length - 1, k);
+	return search(arr, 0, arr.length - 1, k);
 }
 function search(arr = [], i, j, k) {
 	if (j - i <= 0) return arr;
@@ -33,4 +33,4 @@ function partition(arr, i, j) {
 	}
 	return i;
 }
-export { quickSelect };
+module.exports = { quickSelect };

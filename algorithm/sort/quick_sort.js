@@ -38,4 +38,4 @@ function quickSort(arr = [], i, j) {
 	return arr;
 }
 
-export { quickSort };
+module.exports = { quickSort };

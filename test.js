@@ -15,10 +15,9 @@ const arr1 = [-1, 0, 1, 2, -1, -4],
 // [[-2,-1,3],[-2,0,2],[-1,0,1]]
 // import { quickSort } from './algorithm/sort/quick_sort.js';
 // import { mergeSort } from './algorithm/sort/merge_sort.js';
-import { quickSelect } from './algorithm/sort/quick_select.js';
-// log(quickSort(arr8, 0, arr8.length - 1));
-
-// quickSelect(arr3, 2);
+// import { quickSelect } from './algorithm/sort/quick_select.js';
+const { quickSelect } = require('./algorithm/sort/quick_select');
+quickSelect(arr3, 2);
 // import { Stack } from './data_structure/stack_array.js';
 // const stack = new Stack(1, 2, 3);
 // stack.push(4);
