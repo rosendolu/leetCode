@@ -7,14 +7,15 @@ function quickSelect(arr = [], k = 0) {
 	return search(arr, 0, arr.length - 1, k);
 }
 function search(arr = [], i, j, k) {
-	if (j - i <= 0) return arr;
+	if (j - i <= 0) return arr[i];
+	// 分区
 	const index = partition(arr, i, j);
 	log('index', index);
 	if (k === index + 1) return arr[index];
 	if (k > index + 1) {
-		search(arr, index + 1, j);
+		return search(arr, index + 1, j, k);
 	} else {
-		search(arr, i, index - 1);
+		return search(arr, i, index - 1, k);
 	}
 }
 function partition(arr, i, j) {
