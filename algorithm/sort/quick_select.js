@@ -1,8 +1,8 @@
 const { log } = console;
-// 快速选择第 K 大元素
+//  快速查找第K个元素 index
 function quickSelect(arr = [], k = 0) {
 	// 边界处理
-	if (arr.length < k) return null;
+	if (arr.length < k || k < 1) return null;
 	log(arr, k);
 	return search(arr, 0, arr.length - 1, k);
 }
@@ -10,7 +10,7 @@ function search(arr = [], i, j, k) {
 	if (j - i <= 0) return arr[i];
 	// 分区
 	const index = partition(arr, i, j);
-	log('index', index);
+	// log('index', index);
 	if (k === index + 1) return arr[index];
 	if (k > index + 1) {
 		return search(arr, index + 1, j, k);
